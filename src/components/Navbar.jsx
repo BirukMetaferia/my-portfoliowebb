@@ -1,43 +1,78 @@
+
+import { useState } from 'react';
+import './Navbar.css';
+
 export default function Navbar({ isDarkMode, toggleTheme }) {
-  // Back to original working URL, only changed seed to Sara
-  const avatarUrl = "https://api.dicebear.com/9.x/lorelei/svg?seed=Sara&glassesProbability=100&backgroundColor=7c3aed&hairColor=000000";
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const avatarUrl =
+    'https://api.dicebear.com/9.x/lorelei/svg?seed=Sara&glassesProbability=100&backgroundColor=7c3aed&hairColor=000000';
+
+  const navLinks = [
+    { label: 'Home', href: '#home' },
+    { label: 'About', href: '#about' },
+    { label: 'Education & Skills', href: '#education' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'Contact', href: '#contact' },
+  ];
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <img 
-          src={avatarUrl} 
-          alt="Avatar of Loza" 
-          style={{ 
-            width: '42px', 
-            height: '42px', 
-            borderRadius: '50%',
-            objectFit: 'cover',
-            backgroundColor: '#7c3aed'
-          }}
+    <header className="navbar">
+      <div className="navbar-brand">
+        <img
+          src={avatarUrl}
+          alt="Avatar of Loza"
+          className="navbar-avatar"
         />
+
         <div className="logo">LYA.</div>
       </div>
-      
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#education">Education & Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+
+      <nav
+        className={`navbar-navigation ${
+          isMenuOpen ? 'menu-open' : ''
+        }`}
+        aria-label="Main navigation"
+      >
+        <ul className="navbar-links">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a href={link.href} onClick={closeMenu}>
+                {link.label}
+              </a>
+            </li>
+          ))}
         </ul>
-        
-        <button 
-          className="theme-toggle-btn" 
-          onClick={toggleTheme} 
+
+        <button
+          type="button"
+          className="theme-toggle-btn"
+          onClick={toggleTheme}
           title="Toggle Dark Mode"
+          aria-label="Toggle dark mode"
         >
           <div className="theme-toggle-circle">
             {isDarkMode ? '🌙' : '☀️'}
           </div>
         </button>
       </nav>
+
+      <button
+        type="button"
+        className={`hamburger-btn ${
+          isMenuOpen ? 'hamburger-active' : ''
+        }`}
+        onClick={() => setIsMenuOpen((open) => !open)}
+        aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+        aria-expanded={isMenuOpen}
+        aria-controls="mobile-navigation"
+      >
+        <span />
+        <span />
+        <span />
+      </button>
     </header>
   );
 }
