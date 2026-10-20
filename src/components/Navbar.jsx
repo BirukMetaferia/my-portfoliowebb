@@ -16,8 +16,6 @@ export default function Navbar({ isDarkMode, toggleTheme }) {
     { label: 'Contact', href: '#contact' },
   ];
 
-  const closeMenu = () => setIsMenuOpen(false);
-
   return (
     <header className="navbar">
       <div className="navbar-brand">
@@ -26,26 +24,26 @@ export default function Navbar({ isDarkMode, toggleTheme }) {
           alt="Avatar of Loza"
           className="navbar-avatar"
         />
-
         <div className="logo">LYA.</div>
       </div>
 
       <nav
-        className={`navbar-navigation ${
-          isMenuOpen ? 'menu-open' : ''
-        }`}
+        id="mobile-navigation"
+        className={`navbar-navigation ${isMenuOpen ? 'menu-open' : ''}`}
         aria-label="Main navigation"
       >
         <ul className="navbar-links">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a href={link.href} onClick={closeMenu}>
+              <a href={link.href} onClick={() => setIsMenuOpen(false)}>
                 {link.label}
               </a>
             </li>
           ))}
         </ul>
+      </nav>
 
+      <div className="navbar-actions">
         <button
           type="button"
           className="theme-toggle-btn"
@@ -57,22 +55,20 @@ export default function Navbar({ isDarkMode, toggleTheme }) {
             {isDarkMode ? '🌙' : '☀️'}
           </div>
         </button>
-      </nav>
 
-      <button
-        type="button"
-        className={`hamburger-btn ${
-          isMenuOpen ? 'hamburger-active' : ''
-        }`}
-        onClick={() => setIsMenuOpen((open) => !open)}
-        aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-        aria-expanded={isMenuOpen}
-        aria-controls="mobile-navigation"
-      >
-        <span />
-        <span />
-        <span />
-      </button>
+        <button
+          type="button"
+          className={`hamburger-btn ${isMenuOpen ? 'hamburger-active' : ''}`}
+          onClick={() => setIsMenuOpen((open) => !open)}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
     </header>
   );
 }
