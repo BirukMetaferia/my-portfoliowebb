@@ -889,3 +889,189 @@ footer {
     transition: none;
   }
 }
+/* ===== Education section: Mobile responsive ===== */
+
+@media (max-width: 600px) {
+  #education {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.75rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  /* Section heading */
+  #education h2 {
+    font-size: 1.3rem;
+    line-height: 1.35;
+    text-align: center;
+    margin-bottom: 0.7rem !important;
+    overflow-wrap: break-word;
+  }
+
+  #education section > p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Education table */
+  #education table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 0.72rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #education caption {
+    font-size: 0.82rem;
+    padding: 0.5rem 0.25rem;
+    text-align: center;
+  }
+
+  #education th,
+  #education td {
+    min-width: 110px;
+    padding: 0.45rem;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+  }
+
+  #education th:first-child,
+  #education td:first-child {
+    min-width: 120px;
+  }
+
+  /* Skills and leadership cards */
+  #education .education-cards {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    gap: 0.7rem;
+    margin: 1rem auto 0;
+  }
+
+  #education .education-info-card {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  #education .project-card-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
+    min-width: 0;
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    box-sizing: border-box;
+  }
+
+  #education .project-card-trigger > span:first-child {
+    min-width: 0;
+    font-size: 0.85rem;
+    overflow-wrap: anywhere;
+  }
+
+  #education .project-card-prompt {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+  }
+
+  /* Details popup */
+  #education .project-dialog {
+    width: 92%;
+    max-width: 92%;
+    max-height: 82vh;
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+    border-radius: 12px;
+  }
+
+  #education .project-dialog-content {
+    width: 100%;
+    min-width: 0;
+  }
+
+  #education .project-dialog h3 {
+    padding-right: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  #education .project-dialog-close {
+    font-size: 1.5rem;
+  }
+
+  #education .about-dialog-details {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+
+  #education .about-dialog-details ul,
+  #education .about-dialog-details ol {
+    padding-left: 1.1rem;
+  }
+
+  #education .about-dialog-details li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 380px) {
+  #education {
+    padding: 0.5rem;
+  }
+
+  #education h2 {
+    font-size: 1.15rem;
+  }
+
+  #education section > p {
+    font-size: 0.75rem;
+  }
+
+  #education caption {
+    font-size: 0.75rem;
+  }
+
+  #education th,
+  #education td {
+    min-width: 100px;
+    padding: 0.35rem;
+    font-size: 0.66rem;
+  }
+
+  #education .project-card-trigger {
+    padding: 0.6rem;
+  }
+
+  #education .project-card-trigger > span:first-child {
+    font-size: 0.75rem;
+  }
+
+  #education .project-card-prompt {
+    font-size: 0.65rem;
+  }
+
+  #education .project-dialog {
+    padding: 0.75rem;
+  }
+
+  #education .about-dialog-details {
+    font-size: 0.75rem;
+  }
+}
